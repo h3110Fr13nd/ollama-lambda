@@ -17,6 +17,10 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
+# s3_prefix = "ollama-stablelm2-lambda"
+region = "us-east-1"
+disable_rollback = true
+s3_prefix = "ollama-stablelm2-lambda"
 
 [default.package.parameters]
 resolve_s3 = true

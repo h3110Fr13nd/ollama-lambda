@@ -5,10 +5,10 @@ Description: >
 
   Sample SAM Template for ollama-stablelm2-lambda
 
-Globals:
-  Function:
-    LoggingConfig:
-      LogFormat: JSON
+#Globals:
+#  Function:
+#    LoggingConfig:
+#      LogFormat: JSON
 
 Resources:
   HelloWorldFunction:
@@ -19,8 +19,11 @@ Resources:
       - x86_64
       EphemeralStorage:
         Size: 1536
-      MemorySize: 10240
+      MemorySize: 3000
       Timeout: 120
+      FunctionUrlConfig:
+        InvokeMode: BUFFERED
+        AuthType: AWS_IAM
       ImageUri: public.ecr.aws/j4y0t9y5/h3110fr113nd/ml-inference/ollama-stablelm2-lambda:python3.11-v1
     Metadata:
       Dockerfile: Dockerfile
@@ -35,4 +38,4 @@ Outputs:
   # Function Url
   HelloWorldFunctionUrl:
     Description: URL for the Hello World function
-    Value: !GetAtt HelloWorldFunctionRole.FunctionUrl
+    Value: !GetAtt HelloWorldFunctionUrl.FunctionUrl
