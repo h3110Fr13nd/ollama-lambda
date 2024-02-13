@@ -5,9 +5,6 @@ Description: >
 
   Sample SAM Template for ollama-stablelm2-lambda
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
-Globals:
-  Function:
     
 
 Resources:
@@ -27,7 +24,7 @@ Resources:
     Metadata:
       Dockerfile: Dockerfile
       DockerContext: ./hello_world
-      DockerTag: python3.11-v1
+      DockerTag: python3.11-v1Z
   
 
 Outputs:
