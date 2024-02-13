@@ -5,7 +5,10 @@ Description: >
 
   Sample SAM Template for ollama-stablelm2-lambda
 
-    
+Globals:
+  Function:
+    LoggingConfig:
+      LogFormat: JSON
 
 Resources:
   HelloWorldFunction:
@@ -14,8 +17,6 @@ Resources:
       PackageType: Image
       Architectures:
       - x86_64
-      LoggingConfig:
-        LogFormat: JSON
       EphemeralStorage:
         Size: 1536
       MemorySize: 10240
