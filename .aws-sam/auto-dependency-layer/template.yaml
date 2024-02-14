@@ -1,14 +1,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  python3.11
+Description: 'python3.12
 
   Sample SAM Template for ollama-stablelm2-lambda
 
-
+  '
 Resources:
   HelloWorldFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
       Architectures:
@@ -20,19 +19,22 @@ Resources:
       FunctionUrlConfig:
         InvokeMode: BUFFERED
         AuthType: AWS_IAM
-      ImageUri: 675959947872.dkr.ecr.us-east-1.amazonaws.com/ollamastablelm2lambdaef300646/helloworldfunction19d43fc4repo
-        
+      ImageUri: helloworldfunction:latest
     Metadata:
-      Dockerfile: Dockerfile
-      DockerContext: ./hello_world
+      DockerContext: /home/h3110fr13nd/Desktop/dev/cloud/aws/ollama-stablelm2-lambda/hello_world
       DockerTag: latest
-  
-
+      Dockerfile: Dockerfile
+      SamResourceId: HelloWorldFunction
 Outputs:
   HelloWorldFunction:
     Description: Hello World Lambda Function ARN
-    Value: !GetAtt HelloWorldFunction.Arn
-  # Function Url
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
   HelloWorldFunctionUrl:
     Description: URL for the Hello World function
-    Value: !GetAtt HelloWorldFunctionUrl.FunctionUrl
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionUrl
+      - FunctionUrl

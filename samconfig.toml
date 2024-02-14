@@ -16,17 +16,17 @@ lint = true
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
-resolve_image_repos = true
-# s3_prefix = "ollama-stablelm2-lambda"
+image_repositories = ["HelloWorldFunction=675959947872.dkr.ecr.us-east-1.amazonaws.com/ollamastablelm2lambdaef300646/helloworldfunction19d43fc4repo"]
+# resolve_image_repos = true
 region = "us-east-1"
 disable_rollback = true
-s3_prefix = "ollama-stablelm2-lambda"
 
 [default.package.parameters]
 resolve_s3 = true
 
 [default.sync.parameters]
 watch = true
+image_repositories = ["HelloWorldFunction=public.ecr.aws/j4y0t9y5/helloworld"]
 
 [default.local_start_api.parameters]
 warm_containers = "EAGER"
